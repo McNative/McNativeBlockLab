@@ -1,0 +1,85 @@
+{
+  "type": "org.mcnative.Inventory",
+  "name": "xx",
+  "variables": [
+    {
+      "name": "DKFriends",
+      "type": "PaginationList",
+      "provider": "net.pretronic.dkfriends.DKFriends"
+    }
+  ],
+  "views": [
+    {
+      "name": "friends",
+      "parameters": {
+        "title": ""
+      },
+      "containers": [
+        {
+          "slots": [0,35],
+          "variable": "global.DKFriends",
+          "transformer": {
+            "Input": "net.pretronic.dkfriends.Friend",
+            "Output": "org.mcnative.ItemStack",
+            "itemStack":
+            {
+              "material": "STONE",
+              "amount": 1,
+              "displayName": "object.name",
+              "lore": {
+                "object.isOnline": "ONLINE",
+                "else": "OFFLINE"
+              }
+            }
+          }
+        },
+        {
+          "slots": [
+            {
+              "slot": "36",
+              "itemStack": {
+                "material": "STONE",
+                "amount": 1,
+                "displayName": "&6"
+              }
+            },
+            {
+              "slot": "53",
+              "itemStack": {
+                "material": "PAPER",
+                "amount": 1,
+                "displayName": "&6Next page"
+              },
+              "triggers": [
+                {
+                  "type": "InventoryClickEvent",
+                  "process": [
+                    {
+                      "value": "global.DKFriends.nextPage"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "xy",
+      "process": [
+        {
+          "condition": "",
+          "value": [
+            "sendMessage"
+          ]
+        },
+        {
+          "value": "sendMessage"
+        }
+      ]
+    }
+  ]
+}

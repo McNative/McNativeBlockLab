@@ -1,0 +1,10 @@
+{
+  "namespace": "net.pretronic",
+  "name": "Test",
+  "validation": [
+    {
+      "type": "class",
+      "value":" "
+    }
+  ]
+}

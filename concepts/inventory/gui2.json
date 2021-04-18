@@ -1,0 +1,30 @@
+{
+  "name": "Friends",
+  "type": "org.mcnative.blocklab.Gui",
+  "variables": {
+    "dkfriends": {
+      "value": ""
+    },
+    "name": {
+      "$currentPlayer": {
+        "$readField": "name"
+      }
+    }
+  },
+  "containers": [
+    {
+      "name": "friends",
+      "parameters": [
+        {
+          "title": "Friends",
+          "size": 54
+        }
+      ],
+      "components": [
+        {
+
+        }
+      ]
+    }
+  ]
+}

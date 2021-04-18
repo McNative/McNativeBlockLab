@@ -1,0 +1,6 @@
+{
+  "name": "SendMessage",
+  "process": {
+    "type": "net.pretronic"
+  }
+}

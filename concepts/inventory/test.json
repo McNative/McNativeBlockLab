@@ -1,0 +1,60 @@
+{
+  "parameters": {
+    "slots": [0,35],
+    "input": "$global.DKFriends",
+    "inputAlias": "friend",
+    "outputAlias": "item"
+  },
+  "transformer": {
+    "name": "discordPlayerIsOnline",
+    "type": "org.mcnative.DiscordOnlineTransformer",
+    "parameters": {
+      "uuid": "$friend.uniqueId"
+    },
+    "next": [
+      {
+        "type": "org.mcnative.Condition",
+        "parameters": {
+          "object": {
+
+          },
+          "test": [
+            test: ""
+          ],
+
+          "0": "$friend.isOnline",
+          "1": "$friend.isIdle",
+          "": "Test"
+        },
+        "next": [
+          {
+            "type": "ItemStackTransformer",
+            "name": "item",
+            "parameters": {
+              "material": "STONE",
+              "amount": 1,
+              "displayName": "$friend.name",
+              "lore": [
+                "McOnline: Online",
+                "DiscordOnline: $discordPlayerIsOnline"
+              ]
+            }
+          },
+          {
+            "type": "ItemStackTransformer",
+            "name": "item",
+            "parameters": {
+              "material": "STONE",
+              "amount": 1,
+              "displayName": "$friend.name",
+              "lore": [
+                "McOnline: Offline",
+                "DiscodrOnline: $discordPlayerIsOnline"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+},
